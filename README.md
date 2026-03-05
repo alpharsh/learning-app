@@ -1,6 +1,7 @@
-# Welcome to your Expo app 👋
+## Learning App – React Native Case Study
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+This is a Learning App built with React Native and Expo for the case study assignment.  
+It lets users browse courses, view their lessons, and read text-only lesson content with proper loading, error, and empty states.
 
 ## Get started
 
