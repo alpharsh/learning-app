@@ -1,36 +1,39 @@
-import React, { useState } from 'react';
-import { FlatList, SafeAreaView, StyleSheet, Text, View } from 'react-native';
-import type { NativeStackScreenProps } from '@react-navigation/native-stack';
+import type { NativeStackScreenProps } from "@react-navigation/native-stack";
+import React, { useState } from "react";
+import { FlatList, SafeAreaView, StyleSheet, Text, View } from "react-native";
 
-import { CourseCard } from '../components/CourseCard';
-import { SearchBar } from '../components/SearchBar';
-import { StateView } from '../components/StateView';
-import { useCourses } from '../hooks/useCourses';
-import type { RootStackParamList } from '../navigation/RootNavigator';
-import { colors } from '../theme/colors';
-import { spacing } from '../theme/spacing';
-import { typography } from '../theme/typography';
-import { filterCoursesByQuery } from '../utils/search';
+import { CourseCard } from "../components/CourseCard";
+import { SearchBar } from "../components/SearchBar";
+import { StateView } from "../components/StateView";
+import { useCourses } from "../hooks/useCourses";
+import type { RootStackParamList } from "../navigation/RootNavigator";
+import { colors } from "../theme/colors";
+import { spacing } from "../theme/spacing";
+import { typography } from "../theme/typography";
+import { filterCoursesByQuery } from "../utils/search";
 
-type Props = NativeStackScreenProps<RootStackParamList, 'Courses'>;
+type Props = NativeStackScreenProps<RootStackParamList, "Courses">;
 
 export const CourseListScreen: React.FC<Props> = ({ navigation }) => {
   const { courses, loading, error, refetch } = useCourses();
-  const [query, setQuery] = useState('');
+  const [query, setQuery] = useState("");
 
   const filteredCourses = filterCoursesByQuery(courses, query);
 
   return (
     <SafeAreaView style={styles.safeArea}>
       <View style={styles.header}>
-        <Text style={styles.title}>Browse courses</Text>
-        <Text style={styles.subtitle}>Search and pick a course to start learning.</Text>
+        <Text style={styles.title}>Discover Learning</Text>
+        <Text style={styles.subtitle}>
+          Explore our collection of courses and start your learning journey
+          today.
+        </Text>
       </View>
 
       <SearchBar
         value={query}
         onChangeText={setQuery}
-        placeholder="Search by title or description"
+        placeholder="Search courses..."
       />
 
       <StateView
@@ -38,7 +41,10 @@ export const CourseListScreen: React.FC<Props> = ({ navigation }) => {
         error={error}
         isEmpty={!loading && !error && filteredCourses.length === 0}
         onRetry={refetch}
-        emptyMessage={query ? 'No courses match your search.' : 'No courses available yet.'}>
+        emptyMessage={
+          query ? "No courses match your search." : "No courses available yet."
+        }
+      >
         <FlatList
           data={filteredCourses}
           keyExtractor={(item) => item.id}
@@ -46,7 +52,7 @@ export const CourseListScreen: React.FC<Props> = ({ navigation }) => {
             <CourseCard
               course={item}
               onPress={() =>
-                navigation.navigate('Lessons', {
+                navigation.navigate("Lessons", {
                   courseId: item.id,
                   courseTitle: item.title,
                 })
@@ -54,6 +60,7 @@ export const CourseListScreen: React.FC<Props> = ({ navigation }) => {
             />
           )}
           contentContainerStyle={styles.listContent}
+          showsVerticalScrollIndicator={false}
         />
       </StateView>
     </SafeAreaView>
@@ -68,7 +75,11 @@ const styles = StyleSheet.create({
   header: {
     paddingHorizontal: spacing.lg,
     paddingTop: spacing.lg,
-    paddingBottom: spacing.sm,
+    paddingBottom: spacing.xs,
+  },
+  emoji: {
+    fontSize: 40,
+    marginBottom: spacing.sm,
   },
   title: {
     ...typography.heading,
@@ -76,13 +87,12 @@ const styles = StyleSheet.create({
     marginBottom: spacing.xs,
   },
   subtitle: {
-    ...typography.body,
+    ...typography.small,
     color: colors.textSecondary,
+    lineHeight: 18,
   },
   listContent: {
     paddingVertical: spacing.sm,
-    paddingBottom: spacing.xl,
+    paddingBottom: spacing.xxxl,
   },
 });
-
-
