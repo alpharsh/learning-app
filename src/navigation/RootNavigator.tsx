@@ -1,10 +1,10 @@
-import React from 'react';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import React from "react";
 
-import { CourseListScreen } from '../screens/CourseListScreen';
-import { LessonListScreen } from '../screens/LessonListScreen';
-import { LessonDetailScreen } from '../screens/LessonDetailScreen';
-import type { Lesson } from '../types/course';
+import { CourseListScreen } from "../screens/CourseListScreen";
+import { LessonDetailScreen } from "../screens/LessonDetailScreen";
+import { LessonListScreen } from "../screens/LessonListScreen";
+import type { Lesson } from "../types/course";
 
 export type RootStackParamList = {
   Courses: undefined;
@@ -25,7 +25,7 @@ export const RootNavigator = () => {
       <Stack.Screen
         name="Courses"
         component={CourseListScreen}
-        options={{ title: 'Courses' }}
+        options={{ title: "Learning App" }}
       />
       <Stack.Screen
         name="Lessons"
@@ -40,4 +40,3 @@ export const RootNavigator = () => {
     </Stack.Navigator>
   );
 };
-
