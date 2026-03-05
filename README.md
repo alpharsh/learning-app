@@ -247,14 +247,22 @@ You can then run the app using:
 
 ## Screenshots
 
-### Course List Screen
-
-<img width="585" height="1280" alt="Image" src="https://github.com/user-attachments/assets/799191ed-0077-4d58-a2ba-a1dbe7939344" />
-
-### Lesson List Screen
-
-<img width="585" height="1280" alt="Image" src="https://github.com/user-attachments/assets/cfc1812d-019a-442f-9eee-5124ed2fe39a" />
-
-### Lesson Detail Screen
-
-<img width="585" height="1280" alt="Image" src="https://github.com/user-attachments/assets/4378012f-6673-4037-aaeb-eaf06ce66c7a" />
+<table>
+  <tr>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/799191ed-0077-4d58-a2ba-a1dbe7939344" alt="Course List Screen" width="250"/>
+      <br/>
+      <b>Course List Screen</b>
+    </td>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/cfc1812d-019a-442f-9eee-5124ed2fe39a" alt="Lesson List Screen" width="250"/>
+      <br/>
+      <b>Lesson List Screen</b>
+    </td>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/4378012f-6673-4037-aaeb-eaf06ce66c7a" alt="Lesson Detail Screen" width="250"/>
+      <br/>
+      <b>Lesson Detail Screen</b>
+    </td>
+  </tr>
+</table>
